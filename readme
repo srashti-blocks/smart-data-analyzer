@@ -1,0 +1,125 @@
+# Smart Data Analyzer
+
+> A full-stack web application built with Flask that lets you upload any CSV file and instantly get automated data analysis, 
+visualizations, and machine learning insights — all in the browser.
+
+I built this project to strengthen my understanding of how Python data libraries work together in a real web application. 
+Instead of just running scripts in Jupyter Notebook, I wanted to see if I could take everything I had learned — Pandas, NumPy, Matplotlib, and Scikit-Learn — and actually ship something usable.
+
+---
+
+## 🚀 What It Does
+
+Upload any CSV file and the app automatically:
+
+- Profiles your dataset (rows, columns, data types, missing values, duplicates)
+- Generates charts — feature distributions, correlation heatmap, missing value bars
+- Runs **K-Means clustering** with **PCA** to group similar rows using Scikit-Learn
+- Detects smart insights like skewed columns, strong correlations, and data quality issues
+- Shows everything in a clean dark-themed dashboard — no setup needed by the user
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Backend | Python, Flask |
+| Data Processing | Pandas, NumPy |
+| Visualization | Matplotlib |
+| Machine Learning | Scikit-Learn (KMeans, PCA, StandardScaler) |
+| Frontend | HTML5, CSS3, Vanilla JavaScript |
+
+---
+
+## 📁 Project Structure
+
+```
+smart_data_analyzer/
+│
+├── app.py                  # Flask routes and all analysis logic
+├── requirements.txt        # Python dependencies
+├── README.md
+│
+├── templates/
+│   └── index.html          # Main UI (HTML only)
+│
+├── static/
+│   ├── css/
+│   │   └── style.css       # All styles
+│   └── js/
+│       └── main.js         # Frontend logic (upload, fetch, render)
+│
+└── uploads/                # Temporary storage for uploaded CSVs
+```
+
+---
+
+## ⚙️ How to Run Locally
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/YOUR_USERNAME/smart-data-analyzer.git
+cd smart-data-analyzer
+```
+
+**2. Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**3. Start the app**
+```bash
+python app.py
+```
+
+**4. Open in your browser**
+```
+http://127.0.0.1:5000
+```
+
+---
+
+## 📌 How to Use
+
+1. Drag and drop any `.csv` file onto the upload zone (or click to browse)
+2. Click **⚡ ANALYZE DATA**
+3. Scroll through your results:
+   - Overview stats at the top
+   - Smart insights panel
+   - Full column profile table
+   - Top correlations list
+   - Auto-generated charts and ML clustering plot
+
+---
+
+## 🧠 What I Learned Building This
+
+This was my first time taking data analysis code out of a notebook and putting it inside a real web application. A few things I figured out along the way:
+
+- How Flask routes work and how to send/receive JSON between the backend and frontend
+- How to convert Matplotlib figures to base64 strings so they can be displayed in the browser without saving files
+- How to use `StandardScaler` before running KMeans — I initially forgot this and the clustering results were completely wrong
+- How to structure a Flask project properly with separate `templates/` and `static/` folders
+- How the browser's `fetch()` API works for sending form data and rendering results dynamically
+
+---
+
+## 📦 Requirements
+
+```
+flask>=2.3.0
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+scikit-learn>=1.3.0
+```
+
+---
+
+## 🙋 About
+
+I'm a Python developer learning to build real-world applications.
+This project is part of my effort to go beyond tutorials and actually build and ship things.
+Feel free to open an issue or reach out if you have feedback!
+
