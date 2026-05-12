@@ -1,0 +1,91 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Data Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+ 
+<div class="container">
+ 
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-inner">
+      <div class="logo-mark">DA</div>
+      <div>
+        <h1>Smart <span>Data</span> Analyzer</h1>
+        <div class="subtitle">// pandas · numpy · matplotlib · scikit-learn · flask</div>
+      </div>
+      <div class="badge">v1.0</div>
+    </div>
+  </header>
+ 
+  <!-- ── Upload Section ── -->
+  <div class="upload-section" id="uploadSection">
+    <div class="drop-zone" id="dropZone">
+      <span class="dz-icon">⬡</span>
+      <div class="dz-title">Drop your CSV file here</div>
+      <div class="dz-sub">or click to browse &nbsp;·&nbsp; max <span>16MB</span></div>
+      <input type="file" id="fileInput" accept=".csv ">
+    </div>
+    <div class="file-selected" id="fileSelected"></div>
+    <div style="text-align:center">
+      <button class="btn-analyze" id="btnAnalyze" onclick="analyzeFile()">⚡ ANALYZE DATA</button>
+    </div>
+  </div>
+ 
+  <!-- ── Loader ── -->
+  <div class="loader" id="loader">
+    <div class="loader-bar"></div>
+    <p>ANALYZING DATASET... </p>
+  </div>
+ 
+  <!-- ── Results ── -->
+  <div id="results">
+ 
+    <div class="section-label">Dataset Overview</div>
+    <div class="stats-grid" id="statsGrid"></div>
+ 
+    <div class="section-label">Smart Insights</div>
+    <div class="insights-box" id="insightsBox"></div>
+ 
+    <div class="section-label">Column Profiles</div>
+    <div class="table-wrap">
+      <table id="colTable">
+        <thead>
+          <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Missing</th>
+            <th>Unique</th>
+            <th>Mean</th>
+            <th>Std</th>
+            <th>Skew</th>
+          </tr>
+        </thead>
+        <tbody id="colTableBody"></tbody>
+      </table>
+    </div>
+ 
+    <div class="section-label">Top Correlations</div>
+    <div class="corr-list" id="corrList"></div>
+ 
+    <div class="section-label">Visual Analysis</div>
+    <div class="charts-grid" id="chartsGrid"></div>
+ 
+    <button class="btn-reset" onclick="resetApp()">↩ ANALYZE ANOTHER FILE</button>
+  </div>
+ 
+  <!-- ── Footer ── -->
+  <footer>Built with <span>Flask · Pandas · NumPy · Matplotlib · Scikit-Learn</span></footer>
+ 
+</div>
+ 
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+ 
